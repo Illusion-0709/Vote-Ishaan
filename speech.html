@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ishaan's Speech | Vote Ishaan Singh</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── speech-page specific styles ── */
+    .speech-hero {
+      min-height: 42vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 9rem 2.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .speech-hero-content { position: relative; z-index: 1; }
+
+    .speech-hero::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,245,160,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,160,0.045) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .speech-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2.5rem 6rem;
+    }
+
+    .speech-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .speech-sidebar {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .speech-sidebar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .speech-sidebar-card h4 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .speech-sidebar-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .speech-toc {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .speech-toc a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .speech-toc a:hover { color: var(--accent); }
+
+    /* speech content */
+    .speech-content { padding-top: 0.5rem; }
+
+    .speech-block {
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .speech-block:last-child { border-bottom: none; }
+
+    .speech-block-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .speech-block h3 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: 0.03em;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      line-height: 0.95;
+    }
+
+    .speech-block h3 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .speech-block p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+
+    .speech-block .speech-quote {
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: rgba(0,245,160,0.04);
+      border-radius: 0 8px 8px 0;
+      font-size: 1.1rem;
+      color: var(--text);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    /* teachers section */
+    .teachers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .teacher-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color var(--transition);
+    }
+
+    .teacher-card:hover { border-color: rgba(0,245,160,0.3); }
+
+    .teacher-card-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+
+    .teacher-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .teacher-card p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
+
+    .speech-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color var(--transition);
+    }
+
+    .speech-back-btn:hover { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .speech-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .speech-sidebar { position: static; }
+      .teachers-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .speech-hero { padding: 8rem 1.5rem 3rem; }
+      .speech-body { padding: 0 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="index.html#hero" class="nav-logo" id="navLogo">IS<span class="accent">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#goals">Goals</a></li>
+      <li><a href="index.html#why">Why Me</a></li>
+      <li><a href="speech.html" class="active">Speech</a></li>
+    </ul>
+    <button class="nav-cta" id="voteBtn">Vote Ishaan</button>
+  </nav>
+
+  <!-- CONFETTI -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- SPEECH HERO -->
+  <div class="speech-hero">
+    <div class="speech-hero-content">
+      <div class="section-label">My Words- Unfiltered</div>
+      <h1 class="hero-title" style="font-size: clamp(3.5rem,8vw,7rem); margin-bottom:1rem;">
+        THE<br /><span class="hero-name">SPEECH</span><span class="accent">.</span>
+      </h1>
+      <p style="color:var(--text-muted); font-size:1rem; max-width:500px; font-weight:300;">
+        What I said on stage- and what I want teachers to know about my vision for this school.
+      </p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="speech-body">
+    <a href="index.html" class="speech-back-btn">&#8592; Back to main site</a>
+
+    <div class="speech-grid">
+
+      <!-- SIDEBAR -->
+      <aside class="speech-sidebar">
+        <div class="speech-sidebar-card">
+          <h4>Quick Nav</h4>
+          <ul class="speech-toc">
+            <li><a href="#opening">Opening</a></li>
+            <li><a href="#leadership">On Leadership</a></li>
+            <li><a href="#principals-rep">Principal's Rep</a></li>
+            <li><a href="#radio-recess">Radio Recess</a></li>
+            <li><a href="#closing">Closing</a></li>
+            <li><a href="#teachers">For Teachers</a></li>
+          </ul>
+        </div>
+        <div class="speech-sidebar-card">
+          <h4>Running For</h4>
+          <p>&#127919; Principal's Representative</p>
+          <br />
+          <p>&#127897;&#65039; Radio Recess Coordinator</p>
+        </div>
+        <div class="speech-sidebar-card">
+          <h4>Candidate</h4>
+          <p style="color:var(--text); font-weight:600;">Ishaan Singh</p>
+          <p>Student Council Elections 2026</p>
+        </div>
+      </aside>
+
+      <!-- SPEECH CONTENT -->
+      <main class="speech-content">
+
+        <div class="speech-block" id="opening">
+          <div class="speech-block-label">&#8212; Opening</div>
+          <h3>Good Morning,<br /><em>Everyone.</em></h3>
+          <p>My name is Ishaan Singh and I'm standing for Principal's Representative as my first choice, and Radio Recess Coordinator as my second.</p>
+          <div class="speech-quote">
+            For those who don't know me, I wake up at 5am everyday to work on my non-profit startup, volunteer at an animal shelter, and have researched at highly praised companies.
+          </div>
+          <p>And for those who do know me... please remain quiet.</p>
+          <p>On a more serious note, over the past few years I’ve taken part in many activities in and outside school. Last year, I was a project manager working with a company to develop an original solution, where we placed 4th. I’ve also worked behind the scenes in events like Theatrical Journey, where we came 1st. These experiences have shown me that small, consistent efforts create real impact.</p>
+        </div>
+
+        <div class="speech-block" id="leadership">
+          <div class="speech-block-label">&#8212; On Leadership</div>
+          <h3>What Leadership<br /><em>Means to Me</em></h3>
+          <p>To me, a good leader doesn’t just give instructions- they listen, understand, and represent others fairly. Leadership is about responsibility, communication, and staying calm under pressure, and I believe I bring these qualities.</p>
+        </div>
+
+        <div class="speech-block" id="principals-rep">
+          <div class="speech-block-label">&#8212; Role 1</div>
+          <h3>Principal's<br /><em>Representative</em></h3>
+          <div class="speech-quote">
+            As Principal’s Representative, I want to be a strong bridge between students and school leadership, making sure your voices are heard and acted on.
+          </div>
+        </div>
+
+        <div class="speech-block" id="radio-recess">
+          <div class="speech-block-label">&#8212; Role 2</div>
+          <h3>Radio Recess<br /><em>Coordinator</em></h3>
+          <div class="speech-quote">
+            As Radio Recess Coordinator, I’d focus on fixing the radios, as we all know how broken they can be, followed by making breaks more engaging with better music and student involvement.
+          </div>
+        </div>
+
+        <div class="speech-block" id="closing">
+          <div class="speech-block-label">&#8212; Closing</div>
+          <h3>Not Promises.<br /><em>Commitment.</em></h3>
+          <p>My goal is simple: </p>
+          <div class="speech-quote">
+            to help create a positive, organized, and enjoyable school environment through consistent effort and genuine commitment.
+          </div>
+          <p>Thank you for listening- and hopefully, your vote.</p>
+        </div>
+
+        <!-- FOR TEACHERS -->
+        <div class="speech-block" id="teachers">
+          <div class="speech-block-label">&#8212; To The Teachers and Staff</div>
+          <h3>Dear<br /><em>Teachers,</em></h3>
+          <p>I want to whole heartedly thank you for all the work that you do behind the scenes.</p>
+          <p>As Principal's Representative, I'll always come to you with issues framed constructively- not as complaints, but as problems I want to solve collaboratively. I'll be respectful of the challenges you face too, not just the ones students bring to me.</p>
+          <p>As Radio Recess Coordinator, I'll ensure everything I run is appropriate, inclusive, and adds to the school's culture rather than disrupting it. I want the broadcast to be something you look forward to too.</p>
+
+          <div class="teachers-grid">
+            <div class="teacher-card">
+              <div class="teacher-card-icon">&#129309;</div>
+              <h4>Collaborative, Not Confrontational</h4>
+              <p>Every issue I bring forward will come with a proposed solution, not just a grievance. I respect your time.</p>
+            </div>
+            <div class="teacher-card">
+              <div class="teacher-card-icon">&#128075;</div>
+              <h4>Consistent &amp; Reliable</h4>
+              <p>You won't have to chase me. I'll show up to every commitment, every forum, every broadcast on time.</p>
+            </div>
+            <div class="teacher-card">
+              <div class="teacher-card-icon">&#128226;</div>
+              <h4>Appropriate Content Always</h4>
+              <p>Radio Recess will be student-energising but never inappropriate. I'll always run themes past the relevant staff first.</p>
+            </div>
+            <div class="teacher-card">
+              <div class="teacher-card-icon">&#128203;</div>
+              <h4>Transparent Reporting</h4>
+              <p>I'll keep relevant staff updated on what I'm hearing from students- so there are no surprises from either side.</p>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">ISHAAN SINGH<span class="accent">.</span></div>
+      <p class="footer-tagline">Principal's Rep &bull; Radio Recess Coordinator- Student Council 2026</p>
+      <p class="footer-copy">Vote wisely. | Vote Ishaan.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

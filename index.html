@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vote Ishaan Singh</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- BACK TO TOP ARROW -->
+  <button id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- CONFETTI CANVAS -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo" id="navLogo">IS<span class="accent">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#why">Why Me</a></li>
+      <li><a href="speech.html">Speech</a></li>
+    </ul>
+    <button class="nav-cta" id="voteBtn">Vote Ishaan</button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas class="hero-bg-grid" id="gridCanvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-eyebrow"><span class="blink">&#9654;</span> Student Council Elections 2026</p>
+      <h1 class="hero-title">
+        VOTE<br />
+        <span class="hero-name">ISHAAN</span><br />
+        SINGH<span class="accent">.</span>
+      </h1>
+      <p class="hero-roles">
+        <span class="role-tag">Principal's Representative</span>
+        <span class="role-divider">&bull;</span>
+        <span class="role-tag">Radio Recess Coordinator</span>
+      </p>
+      <p class="hero-sub">Amplifying your voice. Bridging the gap. Making the school actually good.</p>
+      <div class="hero-ctas">
+        <a href="#about" class="btn-primary">Meet Ishaan</a>
+        <a href="#goals" class="btn-ghost">See My Goals</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="photo-frame">
+        <img src="ishaan.jpg" alt="Ishaan Singh" />
+      </div>
+      <div class="floating-badge badge-1">&#127897;&#65039; On Air</div>
+      <div class="floating-badge badge-2">&#128226; Your Voice</div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-container">
+      <div class="section-label">001- About Me</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">The Person<br /><em>Behind the Vote</em></h2>
+          <p>Hey, I'm <strong>Ishaan Singh</strong> and I'm running for two roles that I genuinely care about: <strong>Principal's Representative</strong> and <strong>Radio Recess Coordinator</strong>.</p>
+          <p>I believe school should be a place where every student feels heard, not just during assemblies, but every single day. Whether it's bringing your concerns directly to top of the school or having a break that's actually entertaining- I want to make that happen.</p>
+          <p>I'm the kind of person who shows up, stays behind, and remembers that the small things matter just as much as the big ones.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num">2</span>
+              <span class="stat-label">Roles Running For</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">100<span class="accent">%</span></span>
+              <span class="stat-label">Committed to You</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">&infin;</span>
+              <span class="stat-label">Ideas to Improve School</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-card-stack">
+          <div class="info-card card-tilt-1">
+            <div class="card-icon">&#127919;</div>
+            <h4>Principal's Rep</h4>
+            <p>Your direct line to school leadership. I'll carry your concerns to the top and bring answers back.</p>
+          </div>
+          <div class="info-card card-tilt-2">
+            <div class="card-icon">&#127897;&#65039;</div>
+            <h4>Radio Recess Coordinator</h4>
+            <p>Break shouldn't be boring. I'll make it a vibe with music, announcements, and energy that gets you through the day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOALS SCROLL CAROUSEL -->
+  <section id="goals">
+    <div class="goals-sticky-wrapper" id="goalsStickyWrapper">
+      <div class="goals-sticky-inner">
+        <div class="section-container goals-header">
+          <div class="section-label">002- Goals</div>
+          <h2 class="section-title">What I'll<br /><em>Actually Do</em></h2>
+          <p class="section-sub">Not fake promises- real, actionable goals for both roles.</p>
+        </div>
+        <div class="goals-carousel-outer">
+          <div class="goals-track" id="goalsTrack">
+
+            <div class="carousel-slide">
+              <div class="slide-number">01</div>
+              <div class="slide-icon">&#128203;</div>
+              <h3>Monthly Student Forums</h3>
+              <p>Regular, structured sessions where I collect your feedback and present it directly to the principal- with follow-ups, not just nods.</p>
+              <div class="slide-tag">Principal's Rep</div>
+            </div>
+
+            <div class="carousel-slide">
+              <div class="slide-number">02</div>
+              <div class="slide-icon">&#128266;</div>
+              <h3>Radio Recess 2.0</h3>
+              <p>Student-led (appropriate) playlists, shoutouts, trivia, and themed recess days. The breaks are your time and I'll make it feel like it.</p>
+              <div class="slide-tag">Radio Recess</div>
+            </div>
+
+            <div class="carousel-slide">
+              <div class="slide-number">03</div>
+              <div class="slide-icon">&#129309;</div>
+              <h3>Anonymous Suggestion Box</h3>
+              <p>A real system- digital or physical- where students can raise concerns safely, and know they'll be taken seriously.</p>
+              <div class="slide-tag">Principal's Rep</div>
+            </div>
+
+            <div class="carousel-slide">
+              <div class="slide-number">04</div>
+              <div class="slide-icon">&#127925;</div>
+              <h3>Open Mic &amp; Talent Spots</h3>
+              <p>Give talented students a platform during breaks. Radio Recess should celebrate the talent already in our school.</p>
+              <div class="slide-tag">Radio Recess</div>
+            </div>
+
+            <div class="carousel-slide">
+              <div class="slide-number">05</div>
+              <div class="slide-icon">&#128226;</div>
+              <h3>Transparent Communication</h3>
+              <p>I'll share updates on what I've done, what's been planned, and what's in progress- no out of the blue shocks.</p>
+              <div class="slide-tag">Principal's Rep</div>
+            </div>
+
+            <div class="carousel-slide">
+              <div class="slide-number">06</div>
+              <div class="slide-icon">&#128197;</div>
+              <h3>Themed Recess Events</h3>
+              <p>From sports highlights to event days- coordinating break events that bring the whole school together.</p>
+              <div class="slide-tag">Radio Recess</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- tall spacer drives the scroll hijack -->
+    <div class="goals-spacer" id="goalsSpacerEl"></div>
+  </section>
+
+  <!-- WHY VOTE FOR ME -->
+  <section id="why">
+    <div class="section-container">
+      <div class="section-label">003- Why Me</div>
+      <h2 class="section-title">The Case<br /><em>for Ishaan</em></h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-num">01</div>
+          <h3>I Actually Listen</h3>
+          <p>Not performatively- genuinely. I take notes, follow up, and believe every concern deserves a real response.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">02</div>
+          <h3>Double the Roles, Double the Impact</h3>
+          <p>Running for both positions isn't overreach- it's a commitment to be involved on multiple fronts, from the broadcast to the boardroom.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">03</div>
+          <h3>Creative + Practical</h3>
+          <p>Radio Recess needs creativity. Principal's Rep needs strategy. I bring both- and I know which hat to wear when.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">04</div>
+          <h3>Recess Matters</h3>
+          <p>It sounds small, but a great recess improves mood, focus, and school culture. I take that responsibility seriously.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">05</div>
+          <h3>Accountability First</h3>
+          <p>I'll tell you what I've done, what I couldn't do, and why- every single term. No vague updates.</p>
+        </div>
+        <div class="why-card why-card-accent">
+          <div class="why-num">06</div>
+          <h3>I'm Running For <em>You</em></h3>
+          <p>This isn't a line on a resume. I want to make school genuinely better for the people actually in it every day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">ISHAAN SINGH<span class="accent">.</span></div>
+      <p class="footer-tagline">Principal's Rep &bull; Radio Recess Coordinator- Student Council 2026</p>
+      <p class="footer-copy">Vote wisely. | Vote Ishaan.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
